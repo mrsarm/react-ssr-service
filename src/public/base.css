@@ -1,0 +1,12 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #222;
+}
+
+strong {
+  color: red;
+}
+
+.home h1 {
+  color: blue;
+}
