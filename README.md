@@ -5,9 +5,11 @@ Example webapp service to render HTML dynamically in the server side with React.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app),
 but changed a lot to use React only in the server-side.
 
-If you need React in the client side, just use **Create React App** and skip this example, and if you need to build an isomorphic web app with React (an app that can render in the server and the client side as well), you should use a framework like *Next.js* or *Remix* instead.
+If you need React in the client side, just use **Create React App** and skip this example,
+and if you need to build an isomorphic web app with React (an app that can render in the server and
+the client side as well), you should use a framework like *Next.js* or *Remix* instead.
 
-The purpose of an service like this could be to build reports in HTML format.
+The purpose of a service like this could be to build reports in HTML format.
 
 > 🚧 Under construction.
 
