@@ -9,7 +9,8 @@ If you need React in the client side, just use **Create React App** and skip thi
 and if you need to build an isomorphic web app with React (an app that can render in the server and
 the client side as well), you should use a framework like *Next.js* or *Remix* instead.
 
-The purpose of a service like this could be to build reports in HTML format.
+The purpose of a service like this could be to build reports in HTML format
+in a server using React templates.
 
 > 🚧 Under construction.
 
@@ -39,6 +40,17 @@ Builds the app for production to the `build` folder.
 
 - Home: http://localhost:3001
 - Sum page: http://localhost:3001/sum?num1=2&num2=3 to sum 2 and 3.
+- Sum page with a POST request:
+
+      curl -X POST http://localhost:3001/sum \
+          -H Content-Type:application/json \
+          -d '{"num1": 10, "num2": 15}' -o report.html
+
+  This way is useful when you need to build an HTML report providing all
+  the input data, and providing it in the query string of a GET request may
+  not be the best solution if the input data is too big, or it has nested fields,
+  so posting it with a JSON body is a better solution than a GET request.
+
 
 ## Docker
 
