@@ -40,6 +40,16 @@ Builds the app for production to the `build` folder.
 - Home: http://localhost:3001
 - Sum page: http://localhost:3001/sum?num1=2&num2=3 to sum 2 and 3.
 
+## Docker
+
+Build the image with the following command:
+
+    docker build -t react-ssr-service .
+
+Run with:
+
+    docker run --name ssr -p 3001:3001 react-ssr-service
+
 ## About
 
 Just a test project.
