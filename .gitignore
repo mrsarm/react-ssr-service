@@ -36,3 +36,4 @@ Thumbs.db
 
 # Local tests
 /*.html
+/sample*.json

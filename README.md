@@ -39,6 +39,7 @@ Builds the app for production to the `build` folder.
 ## Access the app
 
 - Home: http://localhost:3001
+- Status: http://localhost:3001/status returns HTTP 204 and no content, useful for monitoring.
 - Sum page: http://localhost:3001/sum?num1=2&num2=3 to sum 2 and 3.
 - Sum page with a POST request:
 

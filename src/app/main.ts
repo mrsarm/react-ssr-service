@@ -5,6 +5,7 @@ import {
   errorHandler,
   homeHandler,
   notFoundHandler,
+  statusHandler,
   sumHandler,
 } from './handlers';
 
@@ -27,6 +28,7 @@ app
   .use(errorHandler);
 
 router.get('/', homeHandler);
+router.get('/status', statusHandler);
 router.get('/sum', sumHandler);
 router.post('/sum', sumHandler);
 

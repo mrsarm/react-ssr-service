@@ -12,6 +12,10 @@ export async function homeHandler (req: Request, res: Response) {
   return res.send(await renderPage(<Home />));
 }
 
+export function statusHandler(req: Request, res: Response) {
+  return res.status(204).send();
+}
+
 export async function sumHandler (req: Request, res: Response) {
   let num1: number | undefined;
   let num2: number | undefined;
