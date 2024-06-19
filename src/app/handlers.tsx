@@ -1,6 +1,7 @@
 import React from 'react';
 import { ErrorRequestHandler, Request, Response } from 'express';
 
+import { logger } from './log';
 import renderPage from './render';
 
 import App from '../components/App';
@@ -35,9 +36,11 @@ export async function notFoundHandler (req: Request, res: Response) {
 }
 
 export const errorHandler: ErrorRequestHandler = async (err, req, res, next) => {
-  if (err instanceof Error) {
-    console.error(`Unknown Error at "${req.method} ${req.url} HTTP/${req.httpVersion}" -"`, err);
-    return res.status(500).send(await renderPage(<Err msg={err.message || err.toString()} />));
-  }
-  return res.status(404).send(await renderPage(<NotFound />));
+  logger.error(
+    `Unknown Error at "${req.method} ${req.url} HTTP/${req.httpVersion}" -"`,
+    typeof err === 'string' ? new Error(err) : err,
+  );
+  return res
+    .status(500)
+    .send(await renderPage(<Err msg={err?.message || err?.toString()} />));
 };

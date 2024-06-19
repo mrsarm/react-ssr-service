@@ -8,6 +8,7 @@ import {
   statusHandler,
   sumHandler,
 } from './handlers';
+import { logger } from "./log";
 
 const compression = require('compression');
 const router = require('express-promise-router')();
@@ -19,7 +20,14 @@ const app = express();
 
 app
   .use(compression())
-  .use(morgan(NODE_ENV === 'production' ? 'combined' : 'dev'))
+  .use(morgan(
+    NODE_ENV === "production" ? "combined" : "dev",
+    {
+      stream: {
+        write: (message: string) => logger.info(message.trimEnd()),
+      },
+    }
+  ))
   .use(bodyParser.json({limit: '512kb'}))
   .use('/public', express.static('./src/public', {index: false}))
   .use('/build/img', express.static('./build/img'))
@@ -33,5 +41,5 @@ router.get('/sum', sumHandler);
 router.post('/sum', sumHandler);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server is listening on http://localhost:${PORT}`);
+  logger.info(`🚀 Server is listening on http://localhost:${PORT}`);
 });
